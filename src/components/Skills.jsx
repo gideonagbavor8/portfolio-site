@@ -43,7 +43,7 @@ const Skills = () => {
     ];
 
     return (
-        <section id="skills">
+        <section id="skills" style={{ backgroundColor: 'var(--bg-secondary)' }}>
             <div className="container">
                 <h2 className="section-title">Technical Skills</h2>
 
@@ -57,7 +57,7 @@ const Skills = () => {
                             key={idx}
                             className="skill-category"
                             style={{
-                                backgroundColor: 'var(--bg-secondary)',
+                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
                                 padding: '2rem',
                                 borderRadius: '1rem',
                                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
