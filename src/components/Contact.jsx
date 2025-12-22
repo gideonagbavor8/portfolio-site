@@ -1,13 +1,24 @@
-import React from 'react';
-import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaLinkedin, FaGithub, FaEnvelope, FaCheckCircle, FaExclamationCircle } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Contact = () => {
-    const [formData, setFormData] = React.useState({
+    const [formData, setFormData] = useState({
         name: '',
         email: '',
         message: ''
     });
-    const [status, setStatus] = React.useState(''); // '', 'sending', 'success', 'error'
+    const [status, setStatus] = useState(''); // '', 'sending', 'success', 'error'
+    const [notification, setNotification] = useState(null); // { type: 'success' | 'error', message: '' }
+
+    useEffect(() => {
+        if (notification) {
+            const timer = setTimeout(() => {
+                setNotification(null);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [notification]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,22 +42,22 @@ const Contact = () => {
             if (response.ok) {
                 setStatus('success');
                 setFormData({ name: '', email: '', message: '' });
-                alert(data.message || 'Message sent successfully!');
+                setNotification({ type: 'success', message: data.message || 'Message sent successfully!' });
             } else {
                 setStatus('error');
-                alert(data.message || 'Failed to send message.');
+                setNotification({ type: 'error', message: data.message || 'Failed to send message.' });
             }
         } catch (error) {
             console.error('Error:', error);
             setStatus('error');
-            alert('An error occurred. Please try again.');
+            setNotification({ type: 'error', message: 'An error occurred. Please try again.' });
         } finally {
             if (status !== 'success') setStatus('');
         }
     };
 
     return (
-        <footer id="contact" style={{ backgroundColor: 'var(--bg-secondary)', paddingBottom: '2rem' }}>
+        <footer id="contact" style={{ backgroundColor: 'var(--bg-secondary)', paddingBottom: '2rem', position: 'relative' }}>
             <div className="container" style={{ padding: '5rem 1rem' }}>
                 <h2 className="section-title">Get In Touch</h2>
 
@@ -165,6 +176,37 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Notification Toast */}
+            <AnimatePresence>
+                {notification && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50, x: '-50%' }}
+                        animate={{ opacity: 1, y: 0, x: '-50%' }}
+                        exit={{ opacity: 0, y: 50, x: '-50%' }}
+                        style={{
+                            position: 'fixed',
+                            bottom: '2rem',
+                            left: '50%',
+                            transform: 'translateX(-50%)',
+                            backgroundColor: notification.type === 'success' ? '#10B981' : '#EF4444',
+                            color: 'white',
+                            padding: '1rem 2rem',
+                            borderRadius: '2rem',
+                            boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.75rem',
+                            zIndex: 1000,
+                            minWidth: '300px',
+                            justifyContent: 'center'
+                        }}
+                    >
+                        {notification.type === 'success' ? <FaCheckCircle size={20} /> : <FaExclamationCircle size={20} />}
+                        <span style={{ fontWeight: 500 }}>{notification.message}</span>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </footer>
     );
 };
