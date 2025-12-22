@@ -2,6 +2,49 @@ import React from 'react';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const Contact = () => {
+    const [formData, setFormData] = React.useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+    const [status, setStatus] = React.useState(''); // '', 'sending', 'success', 'error'
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setStatus('sending');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' });
+                alert(data.message || 'Message sent successfully!');
+            } else {
+                setStatus('error');
+                alert(data.message || 'Failed to send message.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setStatus('error');
+            alert('An error occurred. Please try again.');
+        } finally {
+            if (status !== 'success') setStatus('');
+        }
+    };
+
     return (
         <footer id="contact" style={{ backgroundColor: 'var(--bg-secondary)', paddingBottom: '2rem' }}>
             <div className="container" style={{ padding: '5rem 1rem' }}>
@@ -31,45 +74,76 @@ const Contact = () => {
                         borderRadius: '1rem',
                         boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
                     }}>
-                        <form onSubmit={(e) => e.preventDefault()} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             <div>
                                 <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Name</label>
-                                <input type="text" placeholder="Your Name" style={{
-                                    width: '100%',
-                                    padding: '0.75rem',
-                                    borderRadius: '0.5rem',
-                                    border: '1px solid var(--bg-secondary)',
-                                    backgroundColor: 'var(--bg-secondary)',
-                                    color: 'var(--text-primary)',
-                                    outline: 'none'
-                                }} />
+                                <input
+                                    type="text"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    placeholder="Your Name"
+                                    required
+                                    style={{
+                                        width: '100%',
+                                        padding: '0.75rem',
+                                        borderRadius: '0.5rem',
+                                        border: '1px solid var(--bg-secondary)',
+                                        backgroundColor: 'var(--bg-secondary)',
+                                        color: 'var(--text-primary)',
+                                        outline: 'none'
+                                    }}
+                                />
                             </div>
                             <div>
                                 <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Email</label>
-                                <input type="email" placeholder="email@example.com" style={{
-                                    width: '100%',
-                                    padding: '0.75rem',
-                                    borderRadius: '0.5rem',
-                                    border: '1px solid var(--bg-secondary)',
-                                    backgroundColor: 'var(--bg-secondary)',
-                                    color: 'var(--text-primary)',
-                                    outline: 'none'
-                                }} />
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    placeholder="email@example.com"
+                                    required
+                                    style={{
+                                        width: '100%',
+                                        padding: '0.75rem',
+                                        borderRadius: '0.5rem',
+                                        border: '1px solid var(--bg-secondary)',
+                                        backgroundColor: 'var(--bg-secondary)',
+                                        color: 'var(--text-primary)',
+                                        outline: 'none'
+                                    }}
+                                />
                             </div>
                             <div>
                                 <label style={{ display: 'block', marginBottom: '0.5rem', color: 'var(--text-secondary)' }}>Message</label>
-                                <textarea rows="4" placeholder="Your Message" style={{
-                                    width: '100%',
-                                    padding: '0.75rem',
-                                    borderRadius: '0.5rem',
-                                    border: '1px solid var(--bg-secondary)',
-                                    backgroundColor: 'var(--bg-secondary)',
-                                    color: 'var(--text-primary)',
-                                    outline: 'none',
-                                    resize: 'vertical'
-                                }}></textarea>
+                                <textarea
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    rows="4"
+                                    placeholder="Your Message"
+                                    required
+                                    style={{
+                                        width: '100%',
+                                        padding: '0.75rem',
+                                        borderRadius: '0.5rem',
+                                        border: '1px solid var(--bg-secondary)',
+                                        backgroundColor: 'var(--bg-secondary)',
+                                        color: 'var(--text-primary)',
+                                        outline: 'none',
+                                        resize: 'vertical'
+                                    }}
+                                ></textarea>
                             </div>
-                            <button type="submit" className="btn btn-primary" style={{ width: '100%', marginTop: '0.5rem' }}>Send Message</button>
+                            <button
+                                type="submit"
+                                className="btn btn-primary"
+                                disabled={status === 'sending'}
+                                style={{ width: '100%', marginTop: '0.5rem', opacity: status === 'sending' ? 0.7 : 1 }}
+                            >
+                                {status === 'sending' ? 'Sending...' : 'Send Message'}
+                            </button>
                         </form>
                     </div>
 
