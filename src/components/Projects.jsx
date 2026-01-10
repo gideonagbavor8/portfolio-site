@@ -1,6 +1,14 @@
 import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+
+// Import your project images
+import ecommerceImg from '../assets/projects/ecommerce_dashboard.png';
+import libraryImg from '../assets/projects/library_system.png';
+import taskFlowImg from '../assets/projects/taskflow.jpeg';
+import contactAPIImg from '../assets/projects/contactsapi.jpeg';
+// Add more imports as you add more images:
+// import taskManagerImg from '../assets/projects/task_manager.png';
+// import contactAPIImg from '../assets/projects/contact_api.png';
 
 const Projects = () => {
     const projects = [
@@ -8,7 +16,7 @@ const Projects = () => {
             title: "Sleep Outside Website",
             description: "A full-stack e-commerce application designed for outdoor enthusiasts. Features include a responsive product catalog, shopping cart functionality, secure checkout integration, and an admin dashboard for inventory management.",
             tags: ["HTML/CSS", "JavaScript", "Node.js", "JSON Storage"],
-            image: "https://via.placeholder.com/600x400/1e293b/38bdf8?text=Sleep+Outside+Ecommerce",
+            image: ecommerceImg,
             liveLink: "#",
             githubLink: "#"
         },
@@ -16,23 +24,23 @@ const Projects = () => {
             title: "Book Borrowing Website",
             description: "Comprehensive library management system allowing users to browse, borrow, and return books. Includes user authentication, real-time availability tracking, and a robust database design for handling transactions.",
             tags: ["Node.js", "Express", "PostgreSQL", "Authentication"],
-            image: "https://via.placeholder.com/600x400/1e293b/38bdf8?text=Library+System",
+            image: libraryImg,
             liveLink: "#",
             githubLink: "#"
         },
         {
-            title: "Task Management App",
-            description: "Interactive productivity tool featuring drag-and-drop task organization, persistent database storage, and categorization. Built with a focus on intuitive UI/UX and efficient state management.",
-            tags: ["React", "Express", "MongoDB", "Drag-n-Drop"],
-            image: "https://via.placeholder.com/600x400/1e293b/38bdf8?text=Task+Manager",
-            liveLink: "#",
-            githubLink: "#"
+            title: "Task Flow App",
+            description: "A full-stack task management application built with Next.js, TypeScript, and PostgreSQL. Features user authentication, real-time task CRUD operations, and a modern responsive UI with dark mode support.",
+            tags: ["React", "Express", "MongoDB"],
+            image: taskFlowImg,
+            liveLink: "https://taskflow-app-v2.vercel.app/",
+            githubLink: "https://github.com/gideonagbavor8/taskflow-app-v2"
         },
         {
             title: "Contact API Project",
             description: "Secure RESTful API enabling contact management with full CRUD operations. Implements JWT authentication, input validation, and optimized database queries for high performance.",
             tags: ["Node.js", "API Design", "Security", "Swagger"],
-            image: "https://via.placeholder.com/600x400/1e293b/38bdf8?text=Contact+API",
+            image: contactAPIImg,
             liveLink: "#",
             githubLink: "#"
         }
@@ -49,7 +57,7 @@ const Projects = () => {
                     gap: '2.5rem'
                 }}>
                     {projects.map((project, idx) => (
-                        <motion.div
+                        <div
                             key={idx}
                             className="project-card"
                             style={{
@@ -60,11 +68,6 @@ const Projects = () => {
                                 display: 'flex',
                                 flexDirection: 'column'
                             }}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: idx * 0.1, duration: 0.5 }}
-                            whileHover={{ y: -10, transition: { duration: 0.3 } }}
                         >
                             <div style={{ height: '200px', overflow: 'hidden' }}>
                                 <img
@@ -103,7 +106,7 @@ const Projects = () => {
                                     </a>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

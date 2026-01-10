@@ -160,13 +160,13 @@ const Contact = () => {
 
                     <div style={{ marginTop: '2rem', textAlign: 'center' }}>
                         <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', marginBottom: '1rem' }}>
-                            <a href="https://linkedin.com" className="icon-link" style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>
+                            <a href="https://www.linkedin.com/in/gideon-k-agbavor" className="icon-link" style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>
                                 <FaLinkedin />
                             </a>
-                            <a href="https://github.com" className="icon-link" style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>
+                            <a href="https://github.com/gideonagbavor8" className="icon-link" style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>
                                 <FaGithub />
                             </a>
-                            <a href="mailto:contact@gideon.dev" className="icon-link" style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>
+                            <a href="mailto:gideonagbavor8@gmail.com" className="icon-link" style={{ fontSize: '1.5rem', color: 'var(--text-secondary)' }}>
                                 <FaEnvelope />
                             </a>
                         </div>
