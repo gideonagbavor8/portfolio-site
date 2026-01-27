@@ -139,7 +139,74 @@ section {
     font-size: 2rem;
   }
 
+
   section {
     padding: 3rem 1.5rem;
+  }
+}
+
+/* Skills Section */
+.skill-card {
+  background-color: #ffffff;
+  /* Light Mode Default */
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 100%;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+
+.skill-card h3 {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  color: var(--text-primary);
+}
+
+/* Container for skill items (chips) */
+.skill-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f1f5f9;
+  /* Light Mode Default */
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.skill-item:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+.skill-icon {
+  font-size: 1.2rem;
+  display: flex;
+  /* Icons inherit color from parent (.skill-item), handling theme automatically */
+}
+
+/* Dark Mode Overrides for Skills */
+@media (prefers-color-scheme: dark) {
+  .skill-card {
+    background-color: var(--bg-secondary);
+  }
+
+  .skill-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
   }
 }

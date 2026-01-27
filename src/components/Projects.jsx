@@ -14,11 +14,11 @@ const Projects = () => {
     const projects = [
         {
             title: "Sleep Outside Website",
-            description: "A full-stack e-commerce application designed for outdoor enthusiasts. Features include a responsive product catalog, shopping cart functionality, secure checkout integration, and an admin dashboard for inventory management.",
+            description: "A frontend e-commerce application designed for outdoor enthusiasts. Features include a responsive product catalog, shopping cart functionality, secure checkout integration, and an admin dashboard for inventory management.",
             tags: ["HTML/CSS", "JavaScript", "Node.js", "JSON Storage"],
             image: ecommerceImg,
-            liveLink: "#",
-            githubLink: "#"
+            liveLink: "https://sleep-outside14.netlify.app/",
+            githubLink: ""
         },
         {
             title: "Book Borrowing Website",
@@ -41,8 +41,8 @@ const Projects = () => {
             description: "Secure RESTful API enabling contact management with full CRUD operations. Implements JWT authentication, input validation, and optimized database queries for high performance.",
             tags: ["Node.js", "API Design", "Security", "Swagger"],
             image: contactAPIImg,
-            liveLink: "#",
-            githubLink: "#"
+            liveLink: "https://contacts-api-8w2w.onrender.com/api-docs",
+            githubLink: "https://github.com/gideonagbavor8/contacts-api"
         }
     ];
 
