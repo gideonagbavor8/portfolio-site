@@ -23,7 +23,7 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        I am a <strong>Software Developer</strong> with hands-on experience in full-stack web development, backend architecture, and collaborative project execution. Skilled in <strong>HTML, CSS, JavaScript, Python, React, Node.js, Express, MongoDB, PostgreSQL, Django, Next.js,</strong> and RESTful APIs.
+                        I am a <strong>Full-Stack Web Developer and Cybersecurity Professional</strong> with experience building scalable applications and AI-powered development workflows. I am highly skilled in <strong>backend architecture, RESTful APIs, secure authentication</strong>, and modern JavaScript and Python ecosystems.
                     </motion.p>
 
                     <motion.p
@@ -32,7 +32,7 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, duration: 0.5 }}
                     >
-                        I have a proven ability to write clean, scalable code and troubleshoot web applications, with experience in <strong>Agile workflows</strong>, Git version control, and responsive design. Additionally, I am trained in <strong>Google Cybersecurity fundamentals</strong>, including network security, risk assessment, and secure authentication practices.
+                        Certified in the <strong>NIST framework</strong> and holding a <strong>Google Cybersecurity Professional Certificate</strong>, I have practical knowledge of risk assessment, network security, and secure coding practices. I have a proven track record of delivering production-ready features in Agile environments while leveraging AI tools to consistently improve development velocity.
                     </motion.p>
                 </div>
             </div>

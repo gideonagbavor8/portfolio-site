@@ -6,6 +6,8 @@ import ecommerceImg from '../assets/projects/ecommerce_dashboard.png';
 import libraryImg from '../assets/projects/library_system.png';
 import taskFlowImg from '../assets/projects/taskflow.jpeg';
 import contactAPIImg from '../assets/projects/contactsapi.jpeg';
+import whiteWaterImg from '../assets/projects/rafting-site.png';
+import studentAccessHubImg from '../assets/projects/studenthub.png';
 // Add more imports as you add more images:
 // import taskManagerImg from '../assets/projects/task_manager.png';
 // import contactAPIImg from '../assets/projects/contact_api.png';
@@ -18,15 +20,15 @@ const Projects = () => {
             tags: ["HTML/CSS", "JavaScript", "Node.js", "JSON Storage"],
             image: ecommerceImg,
             liveLink: "https://sleep-outside14.netlify.app/",
-            githubLink: ""
+            githubLink: "https://github.com/gideonagbavor8/Sleep-Outside-Repository-"
         },
         {
-            title: "Book Borrowing Website",
+            title: "Book Borrowing",
             description: "Comprehensive library management system allowing users to browse, borrow, and return books. Includes user authentication, real-time availability tracking, and a robust database design for handling transactions.",
             tags: ["Node.js", "Express", "PostgreSQL", "Authentication"],
             image: libraryImg,
-            liveLink: "#",
-            githubLink: "#"
+            liveLink: "https://library-book-finder.onrender.com/", 
+            githubLink: "https://github.com/gideonagbavor8/library-book-finder"
         },
         {
             title: "Task Flow App",
@@ -43,7 +45,24 @@ const Projects = () => {
             image: contactAPIImg,
             liveLink: "https://contacts-api-8w2w.onrender.com/api-docs",
             githubLink: "https://github.com/gideonagbavor8/contacts-api"
+        },
+        {
+            title: "White Water Rafting",
+            description: "A responsive multi-page website built with HTML and CSS to represent a fictional rafting company. The project demonstrates semantic markup, custom styling, and clean layout design. Pages include Home, About Us, Trips, and Contact, each crafted to highlight user experience and accessibility. Deployed using GitHub Pages and Render for live hosting.",
+            tags: ["HTML/CSS", "JavaScript", "Node.js", "JSON Storage"],
+            image: whiteWaterImg,
+            liveLink: "https://white-water-rafting-site.onrender.com",
+            githubLink: "https://github.com/gideonagbavor8/wdd130"
+        },
+        {
+            title: "Student Access Hub",
+            description: "The Student Access Hub is a responsive static website designed to provide students with streamlined access to resources and membership options. Built with HTML and CSS, it emphasizes usability, accessibility, and clean design. The project includes a welcoming home page and a join page with a membership form, demonstrating form validation and professional layout practices. Deployed via Render for live hosting.",
+            tags: ["HTML5", "CSS3", "JavaScript"],
+            image: studentAccessHubImg,
+            liveLink: "https://about-me-wdd131.onrender.com",
+            githubLink: "https://github.com/gideonagbavor8/wdd131/tree/main/project1"
         }
+
     ];
 
     return (
@@ -98,12 +117,24 @@ const Projects = () => {
                                 </div>
 
                                 <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
-                                    <a href={project.liveLink} className="btn btn-primary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
-                                        <FaExternalLinkAlt /> Demo
-                                    </a>
-                                    <a href={project.githubLink} className="btn btn-outline" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', padding: '0.5rem 1rem' }}>
-                                        <FaGithub /> Code
-                                    </a>
+                                    {project.liveLink && (
+                                        <button
+                                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.liveLink, '_blank', 'noopener,noreferrer'); }}
+                                            className="btn btn-primary"
+                                            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', padding: '0.5rem 1rem', cursor: 'pointer', border: 'none' }}
+                                        >
+                                            <FaExternalLinkAlt /> Demo
+                                        </button>
+                                    )}
+                                    {project.githubLink && (
+                                        <button
+                                            onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.githubLink, '_blank', 'noopener,noreferrer'); }}
+                                            className="btn btn-outline"
+                                            style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem', padding: '0.5rem 1rem', cursor: 'pointer', border: 'none' }}
+                                        >
+                                            <FaGithub /> Code
+                                        </button>
+                                    )}
                                 </div>
                             </div>
                         </div>

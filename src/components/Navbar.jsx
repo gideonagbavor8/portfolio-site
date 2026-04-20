@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
 import '../index.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Handle scroll events to shrink/style the navbar dynamically
+  useEffect(() => {
+    const handleScrollEvent = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScrollEvent);
+    return () => window.removeEventListener('scroll', handleScrollEvent);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -31,6 +42,27 @@ const Navbar = () => {
       });
       setIsOpen(false);
     }
+  };
+
+  // Framer motion variants
+  const navVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1, 
+      transition: { 
+        type: 'spring', 
+        stiffness: 100, 
+        damping: 20,
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      } 
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0 }
   };
 
   return (
@@ -101,7 +133,8 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Overlay */}
-        {isOpen && (
+        <AnimatePresence>
+          {isOpen && (
           <div style={{
             position: 'absolute',
             top: 'var(--nav-height)',
@@ -109,7 +142,7 @@ const Navbar = () => {
             width: '100%',
             backgroundColor: 'var(--bg-secondary)',
             padding: '2rem',
-            display: 'flex',
+                display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             gap: '1.5rem',
@@ -118,9 +151,9 @@ const Navbar = () => {
           }}>
             {navLinks.map((link) => (
               <a 
-                key={link.name} 
-                href={link.href} 
-                onClick={(e) => handleScroll(e, link.href)}
+                  key={link.name} 
+                  href={link.href} 
+                  onClick={(e) => handleScroll(e, link.href)}
                 style={{
                   fontSize: '1.2rem',
                   color: 'var(--text-primary)',
@@ -128,12 +161,13 @@ const Navbar = () => {
                   textAlign: 'center',
                   padding: '0.5rem'
                 }}
-              >
-                {link.name}
+                >
+                  {link.name}
               </a>
-            ))}
+              ))}
           </div>
-        )}
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
