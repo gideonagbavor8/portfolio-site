@@ -223,7 +223,7 @@ section {
 
 .nav-link {
   color: #ffffff;
-  /* list-style-type: none; */
+  text-decoration: none !important; /* Explicitly strip default HTML underlines everywhere */
   font-weight: 500;
   font-size: 0.95rem;
   transition: var(--transition);

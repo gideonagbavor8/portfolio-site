@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
 import profilePic from '../assets/profile-pic.jpg';
 
@@ -156,6 +157,9 @@ const Hero = () => {
                         <a href="https://github.com/gideonagbavor8" target="_blank" rel="noopener noreferrer" className="social-icon">
                             <FaGithub />
                         </a>
+                        <a href="https://x.com/gideon_agbavor" className="icon-link" style={{ fontSize: '1.8rem', color: 'var(--text-secondary)', transition: 'color 0.3s' }} onMouseOver={(e) => e.target.style.color = 'var(--accent)'} onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}>
+                            <FaXTwitter />
+                        </a>
                         <a href="mailto:gideonagbavor8@gmail.com" className="social-icon">
                             <FaEnvelope />
                         </a>
@@ -167,6 +171,7 @@ const Hero = () => {
                         flexWrap: 'wrap',
                         justifyContent: 'center'
                     }}>
+                        <a href="/gideon_resume.pdf" download className="btn btn-primary" style={{ padding: '0.9rem 2rem', fontSize: '1rem', backgroundColor: '#2563eb', color: 'white' }}>Download Resume</a>
                         <a href="#projects" className="btn btn-primary" style={{ padding: '0.9rem 2rem', fontSize: '1rem' }}>Latest Work</a>
                         <a href="#contact" className="btn btn-outline" style={{ padding: '0.9rem 2rem', fontSize: '1rem' }}>Get in Touch</a>
                     </motion.div>

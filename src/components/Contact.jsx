@@ -29,12 +29,21 @@ const Contact = () => {
         setStatus('sending');
 
         try {
-            const response = await fetch('/api/contact', {
+            // Web3Forms endpoint
+            const response = await fetch('https://api.web3forms.com/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Accept': 'application/json'
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({
+                    access_key: '8f5d98fd-f088-4038-877d-7f83c77fd9af',
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    subject: 'New Contact Form Submission from Portfolio',
+                    from_name: 'Portfolio Contact Bot'
+                }),
             });
 
             const data = await response.json();
