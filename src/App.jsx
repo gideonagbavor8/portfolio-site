@@ -9,7 +9,6 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import ScrollToTop from './components/ScrollToTop';
 import Footer from './components/Footer';
-import Analytics from "@vercel/analytics/next"
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
-      <Analytics />
     </div>
   );
 }
