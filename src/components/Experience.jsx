@@ -5,28 +5,47 @@ import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
 const Experience = () => {
     const experiences = [
         {
-            title: "Freelance Full-Stack Web Developer",
-            organization: "Self-Employed",
-            period: "2024 – Present",
-            description: "Designing and developing custom web solutions for diverse clients. Managing the entire software development lifecycle, from requirements gathering to deployment and maintenance.",
+            title: "AI & Tech Intern (Full-Stack Focus)",
+            organization: "DFX/Upper Echelon",
+            period: "Nov 2025 – Feb 2026",
+            description: (
+                <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                    <li>Delivered end-to-end full-stack features using Next.js, React, Tailwind, Prisma, and PostgreSQL.</li>
+                    <li>Ranked Top 4 on weekly performance leaderboards while shipping production-ready prototypes.</li>
+                    <li>Utilized AI coding agents to accelerate UI generation, code refactoring, and API integration.</li>
+                    <li>Built investor-ready applications and pitch assets using Midjourney, Gamma, and Perplexity.</li>
+                </ul>
+            ),
             icon: <FaBriefcase />,
             type: 'work'
         },
         {
             title: "Content Advisory Board Member",
             organization: "LogRocket",
-            period: "2024 (Completed)",
-            description: "Reviewed technical articles and provided strategic feedback on content quality, accuracy, and relevance for a global audience of developers. Contributed to maintaining high editorial standards.",
+            period: "Aug 2025 – Present",
+            description: (
+                <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                    <li>Reviewed and validated technical web development content for accuracy and industry standards.</li>
+                    <li>Recommended UI/UX improvements that resulted in a 15% increase in user engagement.</li>
+                    <li>Collaborated with cross-functional teams to enhance responsive design and overall site performance.</li>
+                </ul>
+            ),
             icon: <FaBriefcase />,
             type: 'work'
         },
         {
-            title: "Web & Computer Programming Certificate",
-            organization: "BYU-Idaho",
-            period: "2024 – 2026 (Expected)",
-            description: "Intensive coursework focused on modern web development including frontend frameworks, backend logic, database management, and algorithm design.",
-            icon: <FaGraduationCap />,
-            type: 'education' // Although requested in Experience, it fits the timeline flow
+            title: "Data Service Specialist",
+            organization: "Springboard",
+            period: "Oct 2024 – Oct 2025",
+            description: (
+                <ul style={{ paddingLeft: '1.2rem', margin: 0, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
+                    <li>Reviewed and refined complex datasets, reducing data discrepancies by 15%.</li>
+                    <li>Improved data completeness, contributing to a 20% increase in verified records.</li>
+                    <li>Implemented quality control workflows that improved user satisfaction by 30%.</li>
+                </ul>
+            ),
+            icon: <FaBriefcase />,
+            type: 'work'
         }
     ];
 

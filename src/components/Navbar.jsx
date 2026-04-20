@@ -114,9 +114,11 @@ const Navbar = () => {
               <a 
                 href={link.href} 
                 onClick={(e) => handleScroll(e, link.href)}
+                className="nav-link"
                 style={{
                   color: 'var(--text-secondary)',
                   fontWeight: '500',
+                  textDecoration: 'none'
                 }}
                 onMouseOver={(e) => e.target.style.color = 'var(--accent)'}
                 onMouseOut={(e) => e.target.style.color = 'var(--text-secondary)'}

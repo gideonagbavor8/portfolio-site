@@ -53,22 +53,6 @@ const Hero = () => {
                 zIndex: 1
             }}>
                 <style>{`
-                  @media (min-width: 768px) {
-                    #hero .container { 
-                        flex-direction: row; 
-                        text-align: left; 
-                        justify-content: space-between;
-                    }
-                    .hero-text { 
-                        align-items: flex-start !important; 
-                        flex: 1.2 !important;
-                    }
-                    .hero-image {
-                        flex: 0.8 !important;
-                        justify-content: flex-end !important;
-                    }
-                  }
-                  
                   .gradient-text {
                       background: linear-gradient(135deg, var(--accent) 0%, #8b5cf6 100%);
                       -webkit-background-clip: text;

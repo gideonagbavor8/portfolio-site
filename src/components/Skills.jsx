@@ -78,9 +78,23 @@ const Skills = () => {
             <div className="container">
                 <h2 className="section-title">Technical Skills</h2>
 
+                <style>{`
+                    .skill-item {
+                        height: 40px !important;
+                        display: inline-flex !important;
+                        align-items: center !important;
+                        box-sizing: border-box !important;
+                        padding: 0 1.2rem !important; /* Overriding vertical padding to enforce fixed height */
+                    }
+                    .skill-items-container {
+                        flex: 1; /* Pushes bottom border of card down nicely */
+                        align-content: flex-start;
+                    }
+                `}</style>
+
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
                     gap: '2rem'
                 }}>
                     {skillsData.map((category, idx) => (
@@ -91,12 +105,17 @@ const Skills = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: idx * 0.1, duration: 0.5 }}
+                            style={{ 
+                                display: 'flex', 
+                                flexDirection: 'column', 
+                                height: '100%' 
+                            }}
                         >
                             <h3>{category.category}</h3>
                             <div className="skill-items-container">
                                 {category.items.map((skill, sIdx) => (
                                     <div key={sIdx} className="skill-item">
-                                        <span className="skill-icon">{skill.icon}</span>
+                                        <span className="skill-icon" style={{ display: 'flex', alignItems: 'center' }}>{skill.icon}</span>
                                         <span>{skill.name}</span>
                                     </div>
                                 ))}
