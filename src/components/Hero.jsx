@@ -171,7 +171,7 @@ const Hero = () => {
                         flexWrap: 'wrap',
                         justifyContent: 'center'
                     }}>
-                        <a href="/gideon_resume.pdf" download className="btn btn-primary" style={{ padding: '0.9rem 2rem', fontSize: '1rem', backgroundColor: '#2563eb', color: 'white' }}>Download Resume</a>
+                        <a href="/Gideon_Agbavor_CV_2025.pdf" download className="btn btn-primary" style={{ padding: '0.9rem 2rem', fontSize: '1rem', backgroundColor: '#2563eb', color: 'white' }}>Download Resume</a>
                         <a href="#projects" className="btn btn-primary" style={{ padding: '0.9rem 2rem', fontSize: '1rem' }}>Latest Work</a>
                         <a href="#contact" className="btn btn-outline" style={{ padding: '0.9rem 2rem', fontSize: '1rem' }}>Get in Touch</a>
                     </motion.div>
