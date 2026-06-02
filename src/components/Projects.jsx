@@ -7,7 +7,7 @@ import libraryImg from '../assets/projects/library_system.png';
 import taskFlowImg from '../assets/projects/taskflow.jpeg';
 import contactAPIImg from '../assets/projects/contactsapi.jpeg';
 import whiteWaterImg from '../assets/projects/rafting-site.png';
-import studentAccessHubImg from '../assets/projects/studenthub.png';
+import secureVaultImg from '../assets/projects/secure_vault.png';
 // Add more imports as you add more images:
 // import taskManagerImg from '../assets/projects/task_manager.png';
 // import contactAPIImg from '../assets/projects/contact_api.png';
@@ -55,12 +55,11 @@ const Projects = () => {
             githubLink: "https://github.com/gideonagbavor8/wdd130"
         },
         {
-            title: "Student Access Hub",
-            description: "The Student Access Hub is a responsive static website designed to provide students with streamlined access to resources and membership options. Built with HTML and CSS, it emphasizes usability, accessibility, and clean design. The project includes a welcoming home page and a join page with a membership form, demonstrating form validation and professional layout practices. Deployed via Render for live hosting.",
-            tags: ["HTML5", "CSS3", "JavaScript"],
-            image: studentAccessHubImg,
-            liveLink: "https://about-me-wdd131.onrender.com",
-            githubLink: "https://github.com/gideonagbavor8/wdd131/tree/main/project1"
+            title: "SecureVault",
+            description: "An ultra-secure, full-stack password & secrets manager designed to store and manage sensitive authentication records safely. Built with zero-trust architecture adhering to NIST standards, it encrypts credentials at rest with AES-256-GCM, supports TOTP-based 2FA, and maintains immutable audit logs for security compliance.",
+            tags: ["Next.js", "Express", "PostgreSQL", "Prisma", "Docker", "Cryptography"],
+            image: secureVaultImg,
+            githubLink: "https://github.com/gideonagbavor8/secure-vault"
         }
 
     ];
